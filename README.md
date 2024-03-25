@@ -8,22 +8,36 @@ Vocal expressions reflect emotional states, vital for mental health monitoring. 
 
 The first step involves importing essential libraries by installing them on your system. The primary libraries necessary for code execution include:
 
-Python 3.7
 Pytorch 1.9.0
+
 CUDA 11.3
+
 Blender 3.4.1
+
 ffmpeg 4.4.1
+
 torch==1.9.0
+
 torchvision==0.10.0
+
 torchaudio==0.9.0
+
 numpy
+
 scipy==1.7.1
+
 librosa==0.8.1
+
 tqdm
+
 pickle
+
 transformers==4.6.1
+
 trimesh==3.9.27
+
 pyrender==0.1.45
+
 opencv-python
    
 # Installation
