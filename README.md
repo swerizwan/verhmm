@@ -61,7 +61,7 @@ VOCA: VOCASET is a large collection of audio-4D scan pairs captured from 6 femal
 
 # Training on VOCA Dataset
 
-Prepare the data by converting vertices/audio data into .npy/.wav files and storing them in the directories vocaset/vertices_npy and vocaset/wav. You can do this by navigating to the VOCASET directory and executing the script named process_voca_data.py using Python.
+After downloading the dataset prepare the data by converting vertices/audio data into .npy/.wav files and storing them in the directories dataset/vertices_npy and dataset/wav. You can do this by navigating to the dataset directory and executing the script named process_data.py using Python.
 
 Then for training, execute the main.py using Python from the root directory.
 
@@ -69,4 +69,4 @@ Then for training, execute the main.py using Python from the root directory.
 
 1.	Download Blender from the link '' and put it in the Blender folder in the root directory.
 2.	Download the pre-trained model and put it in the pre-trained folder in the root directory.
-3.	Run the demo by python run_demo.py --wav_path "input_voice/happy.mp3"
+3.	Run the demo by python run_demo.py --input_voice "input_voice/happy.mp3"
