@@ -2,7 +2,7 @@
 
 # About Project
 
-Vocal expressions reflect emotional states, vital for mental health monitoring. Existing techniques struggle with accuracy. We propose a neural network to untangle emotions in voices, creating 3D facial animations. Our approach surpasses baseline methods, offering improved emotional recognition. This advancement is crucial for enhancing mental health analysis and support.
+Vocal expressions reflect emotional states, vital for mental health monitoring. Previous methods have difficulty precisely discerning emotions and contents conveyed through speech. Our solution introduces a neural network that disentangles various emotions from voice signals, facilitating the generation of 3D facial expressions.
 
 # Workflow
 
@@ -55,7 +55,7 @@ CMU-MOSEI: The Multimodal Corpus of Sentiment Intensity (CMU-MOSI) dataset is a 
 
 BIWI: Speech and facial expressions are among the most important channels employed for human communication. During verbal interactions, both the sounds produced and the deformations that faces undergo reveal much about our emotional states, moods, and intentions. In the future, we foresee computers able to capture those subtle affective signals from the persons they are interacting with and interfaces able to send such signals back to human users in the form of believable virtual characters' animations. The dataset is available at https://data.vision.ee.ethz.ch/cvl/datasets/b3dac2.en.html
 
-RAVDESS: The Ryerson Audio-Visual Database of Emotional Speech and Song Dataset (Ravdees) consists of 7356 files database (total size: 24.8 GB). Two lexically matched phrases are vocalized in a neutral North American dialect by 24 professional actors (12 female, 12 male). There are calm, happy, sad, angry, terrified, surprised, and disgusted expressions in speech, and there are calm, happy, sad, angry, and frightening expressions in music. The dataset is available at https://datasets.activeloop.ai/docs/ml/datasets/ravdess-dataset/
+AESI: AESI is a new dataset in Greek containing audio recordings of five categorical emotions: anger, fear, joy, sadness and neutral. The items of the AESI consist of 35 sentences each having content indicative of the corresponding emotion. The resulting data include recordings from 20 participants (12 male, 8 female), which resulted in 696 utterances with a total duration of 27 mins, 51 sec. The dataset is available at https://robotics.ntua.gr/aesi-dataset/
 
 VOCA: VOCASET is a large collection of audio-4D scan pairs captured from 6 female and 6 male subjects. For each subject, we collect 40 sequences of a sentence spoken in English, each of length three to five seconds. Following, you find the raw scanner data (i.e. raw audio-4D scan pairs), the registered data (i.e. in FLAME topology), and the unposed data (i.e. registered data where effects of global rotation, translation, and head rotation around the neck are removed). See the supplementary video for samples of the dataset. The dataset is available at https://voca.is.tue.mpg.de/download.php
 
@@ -67,6 +67,6 @@ Then for training, execute the main.py using Python from the root directory.
 
 # Step to Run the demo
 
-1.	Download Blender from the link '' and put it in the Blender folder in the root directory.
-2.	Download the pre-trained model and put it in the pre-trained folder in the root directory.
+1.	Download Blender from the link https://ftp.nluug.nl/pub/graphics/blender/release/Blender3.4/blender-3.4.1-linux-x64.tar.xz and put it in the Blender folder in the root directory.
+2.	Download the pre-trained model from the link https://drive.google.com/file/d/1ywEYhMWdxWk9Bqt0UIOdAyYM6v8JUF-K/view?usp=sharing and put it in the pre-trained folder in the root directory.
 3.	Run the demo by python run_demo.py --input_voice "input_voice/happy.mp3"
