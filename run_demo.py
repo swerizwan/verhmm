@@ -1,12 +1,12 @@
-import os
-import random
 import librosa
 import numpy as np
 import torch
-import subprocess
-import shlex
+from models.modelfile import verhm
+import random
 import argparse
-from models.modelfile import verhm  # Importing the verhm model from modelfile
+from scipy.signal import savgol_filter
+import os, subprocess
+import shlex
 
 # Function to perform emotion prediction
 def perform_emotion_prediction(args):
@@ -75,25 +75,44 @@ def render_output_video(args):
     subprocess.call(cmd, shell=True)  # Execute command to remove image directory
 
 # Main function
+
+
+import argparse
+
 def main():
-    parser = argparse.ArgumentParser(description='Voice-Driven 3D Facial Emotion Recognition For Mental Health Monitoring')  # Argument parser
-    parser.add_argument("--input_voice", type=str, default="voice/angry1.wav", help='path of the test data')  # Input voice file path
-    parser.add_argument("--f_dim", type=int, default=832, help='number of feature dim')  # Number of feature dimensions
-    parser.add_argument("--times", type=int, default=30, help='number of times')  # Number of times
-    parser.add_argument("--device", type=str, default="cuda", help='device')  # Device for computation
-    parser.add_argument("--output_path", type=str, default="output/", help='output folder')  # Output folder
-    parser.add_argument("--b_dim", type=int, default=52, help='number of blendshapes')  # Number of blendshapes
-    parser.add_argument("--m_seq_l", type=int, default=5000, help='max sequence length')  # Maximum sequence length
-    parser.add_argument("--n_workers", type=int, default=0)  # Number of workers
-    parser.add_argument("--batch_size", type=int, default=1)  # Batch size
-    parser.add_argument("--pre_trained_model", type=str, default="pretrain_model/verhm.pth", help='pre-trained models')  # Path to pre-trained model
-    parser.add_argument("--post_processing", action="store_true", help='to use post processing')  # Whether to use post-processing
-    parser.add_argument("--b_path", type=str, default="blender/blender", help='blender folder')  # Path to Blender folder
+    # Create an argument parser with a description
+    parser = argparse.ArgumentParser(
+        description='Voice-Driven 3D Facial Emotion Recognition For Mental Health Monitoring')
+
+    # Define various command line arguments
+    parser.add_argument("--input_voice", type=str, default="input_voice/hap.wav", 
+                        help='path of the test data')  # Input voice file path
+    parser.add_argument("--blendshapes", type=int, default=52, 
+                        help='number of blendshapes:52')  # Number of blendshapes
+    parser.add_argument("--features", type=int, default=832, 
+                        help='number of feature dim')  # Number of feature dimensions
+    parser.add_argument("--period", type=int, default=30, 
+                        help='number of period')  # Number of periods
+    parser.add_argument("--device", type=str, default="cuda", 
+                        help='device')  # Device
+    parser.add_argument("--output_path", type=str, default="output/", 
+                        help='output folder')  # Output folder
+    parser.add_argument("--max_seq_len", type=int, default=5000, 
+                        help='max sequence length')  # Maximum sequence length
+    parser.add_argument("--num_workers", type=int, default=0)  
+    parser.add_argument("--batch_size", type=int, default=1)  
+    parser.add_argument("--pre_trained_model", type=str, default="pretrain_model/verhm.pth", 
+                        help='pre-trained models')  # Path to pre-trained model
+    parser.add_argument("--post_processing", action="store_true", 
+                        help='to use post processing')  # Whether to use post-processing
+    parser.add_argument("--b_path", type=str, default="blender/blender", 
+                        help='blender folder')  # Path to Blender folder
+
     args = parser.parse_args()  # Parse command line arguments
+
     perform_emotion_prediction(args)  # Perform emotion prediction
     render_output_video(args)  # Render output video
 
-# Entry point of the program
+# Call the main function if this script is executed
 if __name__ == "__main__":
-    main()  # Call the main function
-
+    main()
