@@ -76,7 +76,7 @@ def render_output_video(args):
 
 # Main function
 def main():
-    parser = argparse.ArgumentParser(description='EmoTalk: Speech-driven Emotional Disentanglement for 3D Face Animation')  # Argument parser
+    parser = argparse.ArgumentParser(description='Voice-Driven 3D Facial Emotion Recognition For Mental Health Monitoring')  # Argument parser
     parser.add_argument("--input_voice", type=str, default="voice/angry1.wav", help='path of the test data')  # Input voice file path
     parser.add_argument("--f_dim", type=int, default=832, help='number of feature dim')  # Number of feature dimensions
     parser.add_argument("--times", type=int, default=30, help='number of times')  # Number of times
