@@ -63,7 +63,7 @@ VOCASET: VOCASET is a large collection of audio-4D scan pairs captured from 6 fe
 
 After downloading the dataset prepare the data by converting vertices/audio data into .npy/.wav files and storing them in the directories dataset/vertices_npy and dataset/wav. You can do this by navigating to the dataset directory and executing the script named process_data.py using Python.
 
-Then for training, execute the main.py using Python from the root directory.
+Then for training, run the main.py using Python from the root directory.
 
 # Step to Run the demo
 
