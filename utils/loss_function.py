@@ -1,8 +1,8 @@
 import torch
 
 def calculate_loss(predicted_morphs, ground_truth_morphs, predicted_style_features, style_features, 
-                   predicted_emotion_labels, emotion_labels, lambda_recon=1.0, lambda_style=1.0, 
-                   lambda_smooth=1.0, lambda_emotion=1.0):
+                   predicted_emotion_labels, emotion_labels, lambda_recon=1.0, lambda_style=0.5, 
+                   lambda_smooth=0.05, lambda_emotion=0.1):
     """
     Calculate the total loss based on various components.
     
