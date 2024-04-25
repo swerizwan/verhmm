@@ -55,7 +55,7 @@ VOCASET is a large collection of audio-4D scan pairs captured from 6 female and 
 
 ### [FaceTalk](https://shivangi-aneja.github.io/projects/facetalk/)
 
-# Training on Dataset
+# Steps for the Training
 
 After downloading the dataset, prepare the data by converting vertices/audio data into .npy/.wav files and storing them in the directories `dataset/vertices_npy` and `dataset/wav`. You can do this by navigating to the dataset directory and executing the script named `process_data.py` using Python.
 
