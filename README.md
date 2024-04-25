@@ -47,13 +47,13 @@ VOCASET is a large collection of audio-4D scan pairs captured from 6 female and 
 
 # Baselines
 
-### [VOCA](https://github.com/TimoBolkart/voca)
+### [VOCA](https://doi.ieeecomputersociety.org/10.1109/CVPR.2019.01034)
 
-### [MeshTalk](https://github.com/facebookresearch/meshtalk)
+### [MeshTalk](10.1109/ICCV48922.2021.00121)
 
-### [FaceFormer](https://github.com/EvelynFan/FaceFormer)
+### [FaceFormer](https://doi.ieeecomputersociety.org/10.1109/CVPR52688.2022.01821)
 
-### [FaceTalk](https://github.com/shivangi-aneja/FaceTalk)
+### [FaceTalk](https://shivangi-aneja.github.io/projects/facetalk/)
 
 # Training on Dataset
 
