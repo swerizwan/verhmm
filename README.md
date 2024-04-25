@@ -45,7 +45,17 @@ AESI is a new dataset in Greek containing audio recordings of five categorical e
 ### VOCASET
 VOCASET is a large collection of audio-4D scan pairs captured from 6 female and 6 male subjects. For each subject, we collect 40 sequences of a sentence spoken in English, each of length three to five seconds. Following, you find the raw scanner data (i.e. raw audio-4D scan pairs), the registered data (i.e. in FLAME topology), and the unposed data (i.e. registered data where effects of global rotation, translation, and head rotation around the neck are removed). See the supplementary video for samples of the dataset. The dataset is available at [VOCASET](https://voca.is.tue.mpg.de/download.php).
 
-# Training on VOCA Dataset
+# Baselines
+
+### [VOCA](https://github.com/TimoBolkart/voca)
+
+### [MeshTalk](https://github.com/facebookresearch/meshtalk)
+
+### [FaceFormer](https://github.com/EvelynFan/FaceFormer)
+
+### [FaceTalk](https://github.com/shivangi-aneja/FaceTalk)
+
+# Training on VOCA Dataset[VOCA](https://voca.is.tue.mpg.de/download.php)
 
 After downloading the dataset, prepare the data by converting vertices/audio data into .npy/.wav files and storing them in the directories `dataset/vertices_npy` and `dataset/wav`. You can do this by navigating to the dataset directory and executing the script named `process_data.py` using Python.
 
