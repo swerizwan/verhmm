@@ -6,7 +6,7 @@ from tqdm import tqdm
 import torch
 import torch.nn as nn
 from data_loader import get_dataloaders
-from faceformer import Faceformer
+from Facesynthesizer import facesynthesizer
 
 def trainer(args, train_loader, dev_loader, model, optimizer, criterion, epoch=100):
     """
@@ -212,7 +212,7 @@ def main():
     args.device = torch.device(args.device)
 
     # Build model
-    model = Faceformer(args)
+    model = facesynthesizer(args)
     print("Model parameters: ", count_parameters(model))
 
     # Move model to device
