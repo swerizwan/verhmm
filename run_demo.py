@@ -63,11 +63,11 @@ def render_output_video(args):
         line = line.strip()  # Strip whitespace
         if line:  # If output line is not empty
             print(f'[{line}]')  # Print the output line
-    if p.returncode == 0:  # If subprocess exits successfully
-        generate_value = verhm(args)
-        generate_value.generate_value()
-    else:
-        print('Subprogram failed')  # Print failure message
+    # if p.returncode == 0:  # If subprocess exits successfully
+    #     generate_value = verhm(args)
+    #     generate_value.generate_value()
+    # else:
+    #     print('Subprogram failed')  # Print failure message
 
     cmd = f'ffmpeg -r 30 -i "{image_template}" -i "{args.input_voice}" -pix_fmt yuv420p -strict -2 -s 512x768 "{output_path}" -y'  # Command to render video using ffmpeg
     subprocess.call(cmd, shell=True)  # Execute ffmpeg command
@@ -112,6 +112,8 @@ def main():
     args = parser.parse_args()  # Parse command line arguments
 
     perform_emotion_prediction(args)  # Perform emotion prediction
+    generate_value = verhm(args)
+    generate_value.generate_value()
     render_output_video(args)  # Render output video
 
 # Call the main function if this script is executed
