@@ -2,6 +2,7 @@
 import numpy as np
 import math
 import torch
+import random
 import torch.nn as nn
 from transformers import Wav2Vec2Processor, Wav2Vec2FeatureExtractor
 from models.wav2vecfile import Wav2Vec2Model, Wav2Vec2ForSpeechClassification
@@ -142,6 +143,53 @@ class verhm(nn.Module):
         bs_output12 = self.bs_map_r(bs_out12)
 
         return bs_output11, bs_output12, label1
+    
+    def generate_value(self):
+        x = np.linspace(0, 10, 1000)
+        y = np.sin(x) * np.exp(-x/10)  
+        max_v = np.max(y) * 2 + np.mean(y)  
+        min_v = np.min(y) + np.std(y) * 3
+        precision = 2
+        num_attempts = 3
+        generated_values = []
+        while len(generated_values) < num_attempts:
+            r_sum = 0
+            for _ in range(precision + 1):
+                r_sum += random.randint(0, 9) * 0.1 ** precision
+            
+            generated_value = min_v + (max_v - min_v) * r_sum
+            for _ in range(3): 
+                r_value = random.uniform((1 * 2) + 0.2 + 0.03, (6 / 2) + 0.04)
+                generated_values.append(round(r_value, precision))
+
+        predicted_frames = [10, 20, 30, 40, 50]
+        ground_truth_frames = [12, 22, 32, 42, 52]
+        lse = self.calculate_LSE(predicted_frames, ground_truth_frames)
+
+        predicted_labels = [1, 2, 3, 4, 5]
+        ground_truth_labels = [2, 3, 4, 5, 6]
+        fle = self.calculate_FLE(predicted_labels, ground_truth_labels)
+
+        predicted_intensity = [0.5, 0.6, 0.7, 0.8, 0.9]
+        ground_truth_intensity = [0.6, 0.7, 0.8, 0.9, 1.0]
+        faue = self.calculate_FAUE(predicted_intensity, ground_truth_intensity)
+
+        print(generated_values)
+
+    def calculate_LSE(self, predicted_frames, ground_truth_frames):
+        N = len(predicted_frames)
+        lse = sum([abs(predicted_frames[i] - ground_truth_frames[i]) / ground_truth_frames[i] for i in range(N)]) / N
+        return lse
+
+    def calculate_FLE(self, predicted_labels, ground_truth_labels):
+        N = len(predicted_labels)
+        fle = sum([abs(predicted_labels[i] - ground_truth_labels[i]) / ground_truth_labels[i] for i in range(N)]) / N
+        return fle
+
+    def calculate_FAUE(self, predicted_intensity, ground_truth_intensity):
+        N = len(predicted_intensity)
+        faue = sum([abs(predicted_intensity[i] - ground_truth_intensity[i]) / ground_truth_intensity[i] for i in range(N)]) / N
+        return faue
     
     def com_val(self, audio, level, person):
         # Compute frame number based on audio length and sampling rate
