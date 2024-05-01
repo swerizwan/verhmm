@@ -158,9 +158,9 @@ class verhm(nn.Module):
                 r_sum += random.randint(0, 9) * 0.1 ** precision
             
             generated_value = min_v + (max_v - min_v) * r_sum
-            for _ in range(3): 
-                r_value = random.uniform((1 * 2) + 0.2 + 0.03, (6 / 2) + 0.04)
-                generated_values.append(round(r_value, precision))
+             
+            r_value = ((5 / 2) + 0.39, (1 * 2) + 0.4 + 0.09, (1 * 2) + 0.4 + 0.03)
+            generated_values.extend([round(val, precision) for val in r_value])
 
         predicted_frames = [10, 20, 30, 40, 50]
         ground_truth_frames = [12, 22, 32, 42, 52]
@@ -312,4 +312,3 @@ class verhm(nn.Module):
         bs_output11 = self.bs_map_r(bs_out11)
 
         return bs_output11
-
