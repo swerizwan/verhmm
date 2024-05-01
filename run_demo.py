@@ -64,7 +64,8 @@ def render_output_video(args):
         if line:  # If output line is not empty
             print(f'[{line}]')  # Print the output line
     if p.returncode == 0:  # If subprocess exits successfully
-        print('Subprogram success')  # Print success message
+        generate_value = verhm(args)
+        generate_value.generate_value()
     else:
         print('Subprogram failed')  # Print failure message
 
@@ -85,7 +86,7 @@ def main():
         description='Voice-Driven 3D Facial Emotion Recognition For Mental Health Monitoring')
 
     # Define various command line arguments
-    parser.add_argument("--input_voice", type=str, default="input_voice/hap.wav", 
+    parser.add_argument("--input_voice", type=str, default="input_voice/fru.wav", 
                         help='path of the test data')  # Input voice file path
     parser.add_argument("--blendshapes", type=int, default=52, 
                         help='number of blendshapes:52')  # Number of blendshapes
@@ -116,4 +117,3 @@ def main():
 # Call the main function if this script is executed
 if __name__ == "__main__":
     main()
-
