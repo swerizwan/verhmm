@@ -46,7 +46,7 @@ Our project utilizes several datasets for training and testing purposes:
 
 ## Training Steps
 
-After downloading the dataset, prepare the data by converting vertices/audio data into .npy/.wav files and store them in the directories `dataset/vertices_npy` and `dataset/wav`. Execute the script named `process_data.py` from the dataset directory using Python. Then, for training, run `main.py` from the root directory using Python.
+After downloading the dataset, prepare the data by converting vertices/audio data into .npy/.wav files and store them in the directories `dataset/vertices_npy` and `dataset/wav`. Then, for training, run `main.py` from the root directory using Python.
 
 ## Running the Demo
 
